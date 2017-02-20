@@ -12,4 +12,5 @@ diamond设计上的一些问题？
 client使用
 ==
 * classpath:diamond.properties
- 1. HTTP_URI_FILE=http://10.200.51.105:9900/diamond-server/config.co 配置获取dataId数据的url
+ 1.配置获取/探测dataId数据改变的url 
+ HTTP_URI_FILE=/diamond-server/config.co   
