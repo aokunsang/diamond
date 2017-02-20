@@ -38,16 +38,16 @@ public static final int POLLING_INTERVAL_TIME = 15;// 秒
 三、客户端配置
 客户端调用diamond-server获取配置数据信息时，需要通过diamond.properties动态修改一些数据，如：
 
-//获取ServerAddress的URI服务器所在域名或者ip地址
+//获取ServerAddress的URI服务器所在域名或者ip地址  
 DEFAULT_DOMAINNAME=localhost
 
-//获取ServerAddress的URI备用服务器所在域名或者ip地址
+//获取ServerAddress的URI备用服务器所在域名或者ip地址  
 DAILY_DOMAINNAME=localhost
 
-//获取ServerAddress的URI服务器的端口号(nginx为80)
+//获取ServerAddress的URI服务器的端口号(nginx为80)  
 DEFAULT_PORT=8080
 
-//获取配置数据的URI地址(可以是http全路径地址)，如果不带ip，那么轮换使用ServerAddress中的地址请求
+//获取配置数据的URI地址(可以是http全路径地址)，如果不带ip，那么轮换使用ServerAddress中的地址请求  
 HTTP_URI_FILE=/diamond-server/config.co
 
 //获取ServerAddress的URI(可以是http全路径地址)，diamond是一个文件，一行一个ip或者域名
