@@ -12,17 +12,7 @@ diamond
 4.system.properties中配置的dump_config_interval，定时器多久全量更新一次数据库的配置数据，  
   说明：一次取1000条记录，分页更新。
 
-在webapp的jsp中添加404.jsp，否则会找不到页面。
-
-二、修改类com.taobao.diamond.common.Constants中一个属性变量：
-
-public static final int POLLING_INTERVAL_TIME = 15;// 秒
-去掉final，public static int POLLING_INTERVAL_TIME = 15; // 秒
-
-字段说明：探测某个配置数据的时间间隔，默认为15秒，  
-修改原因：客户端可以通过配置文件动态修改这个时间。
-
-三、客户端配置  
+二、客户端配置  
 客户端调用diamond-server获取配置数据信息时，需要通过diamond.properties动态修改一些数据，如：
 
 //获取ServerAddress的URI服务器所在域名或者ip地址  
@@ -38,7 +28,10 @@ DEFAULT_PORT=8080
 HTTP_URI_FILE=/diamond-server/config.co
 
 //获取ServerAddress的URI(可以是http全路径地址)，diamond是一个文件，一行一个ip或者域名
-CONFIG_HTTP_URI_FILE=/diamond-server/diamond
+CONFIG_HTTP_URI_FILE=/diamond-server/diamond  
+
+//探测某个配置数据的时间间隔，默认为15秒， 
+POLLING_INTERVAL_TIME=1  
 
 说明：  
 1、如果HTTP_URI_FILE和CONFIG_HTTP_URI_FILE的端口号不一样，需要修改源代码设置。  
@@ -53,6 +46,6 @@ host=com.taobao.diamond.common.Constants#DEFAULT_DOMAINNAME，port=com.taobao.di
 重试备用服务器时，host=com.taobao.diamond.common.Constants#DAILY_DOMAINNAME，port=com.taobao.diamond.common.Constants#DEFAULT_PORT;
 
 
-四、获取diamond-server服务器的地址  
+三、获取diamond-server服务器的地址  
 1、客户端启动时先从CONFIG_HTTP_URI_FILE取一次地址列表并且写入本地文件(~/diamond/ServerAddress，默认会写入一个localhost)，然后放入DiamondConfigure.domainNameList中,异步线程每隔5分钟从CONFIG_HTTP_URI_FILE获取有效的地址，更新本地文件。   
 2、客户端本地文件存储目录：~/diamond/data，项目启动时同时注册文件夹(增加、删除、修改)监控事件。
