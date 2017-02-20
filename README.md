@@ -60,13 +60,12 @@ CONFIG_HTTP_URI_FILE的port修改位置：com.taobao.diamond.common.Constants#DE
 
 2、HTTP_URI_FILE和CONFIG_HTTP_URI_FILE的ip地址获取方式：  
 CONFIG_HTTP_URI_FILE，先取com.taobao.diamond.client.DiamondConfigure#configServerAddress，
-如果configServerAddress!=null(不会重试备用服务器，只会重试2次同样的host+port，推荐默认值null)，host=com.taobao.diamond.client.DiamondConfigure#configServerAddress，port=om.taobao.diamond.client.DiamondConfigure#configServerPort;
-如果configServerAddress==null(会重试备用服务器)，  
+(1)如果configServerAddress!=null(不会重试备用服务器，只会重试2次同样的host+port，推荐默认值null)，host=com.taobao.diamond.client.DiamondConfigure#configServerAddress，port=om.taobao.diamond.client.DiamondConfigure#configServerPort;  
+(2)如果configServerAddress==null(会重试备用服务器)，
 host=com.taobao.diamond.common.Constants#DEFAULT_DOMAINNAME，port=com.taobao.diamond.common.Constants#DEFAULT_PORT;
 重试备用服务器时，host=com.taobao.diamond.common.Constants#DAILY_DOMAINNAME，port=com.taobao.diamond.common.Constants#DEFAULT_PORT;
 
 
 四、获取diamond-server服务器的地址  
-1、客户端启动时先从CONFIG_HTTP_URI_FILE取一次地址列表并且写入本地文件(~/diamond/ServerAddress，默认会写入一个localhost)，然后放入DiamondConfigure.domainNameList中。  
-异步线程每隔5分钟从CONFIG_HTTP_URI_FILE获取有效的地址，更新本地文件。   
+1、客户端启动时先从CONFIG_HTTP_URI_FILE取一次地址列表并且写入本地文件(~/diamond/ServerAddress，默认会写入一个localhost)，然后放入DiamondConfigure.domainNameList中,异步线程每隔5分钟从CONFIG_HTTP_URI_FILE获取有效的地址，更新本地文件。   
 2、本地文件存储位置：~/diamond/data，项目启动时同时注册文件夹(增加、删除、修改)监控事件。
