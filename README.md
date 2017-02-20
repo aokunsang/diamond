@@ -55,4 +55,4 @@ host=com.taobao.diamond.common.Constants#DEFAULT_DOMAINNAME，port=com.taobao.di
 
 四、获取diamond-server服务器的地址  
 1、客户端启动时先从CONFIG_HTTP_URI_FILE取一次地址列表并且写入本地文件(~/diamond/ServerAddress，默认会写入一个localhost)，然后放入DiamondConfigure.domainNameList中,异步线程每隔5分钟从CONFIG_HTTP_URI_FILE获取有效的地址，更新本地文件。   
-2、本地文件存储位置：~/diamond/data，项目启动时同时注册文件夹(增加、删除、修改)监控事件。
+2、客户端本地文件存储目录：~/diamond/data，项目启动时同时注册文件夹(增加、删除、修改)监控事件。
