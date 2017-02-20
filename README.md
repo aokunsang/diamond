@@ -30,7 +30,7 @@ HTTP_URI_FILE=/diamond-server/config.co
 //获取ServerAddress的URI(可以是http全路径地址)，diamond是一个文件，一行一个ip或者域名
 CONFIG_HTTP_URI_FILE=/diamond-server/diamond  
 
-//探测某个配置数据的时间间隔，默认为15秒， 
+//探测某个配置数据的时间间隔，默认为15秒  
 POLLING_INTERVAL_TIME=1  
 
 说明：  
