@@ -18,10 +18,10 @@ client使用
 一、diamond-server
  
  一个web程序，用tomcat容器启动。
-1.提供接口用于客户端获取配置信息，以及探测配置信息是否修改并且获取最新数据，
-2.提供一个简约的操作页面，增删改配置数据，
-3.通知集群中其他节点同步更新变化的配置数据，集群节点的ip和port，通过node.properties配置，
-4.system.properties中配置的dump_config_interval，定时器多久全量更新一次数据库的配置数据，
+1.提供接口用于客户端获取配置信息，以及探测配置信息是否修改并且获取最新数据，  
+2.提供一个简约的操作页面，增删改配置数据，  
+3.通知集群中其他节点同步更新变化的配置数据，集群节点的ip和port，通过node.properties配置，  
+4.system.properties中配置的dump_config_interval，定时器多久全量更新一次数据库的配置数据，  
   说明：一次取1000条记录，分页更新。
 
 在webapp的jsp中添加404.jsp，否则会找不到页面。
@@ -30,7 +30,6 @@ client使用
 
 public static final int POLLING_INTERVAL_TIME = 15;// 秒
 去掉final，public static int POLLING_INTERVAL_TIME = 15; // 秒
-
 
 字段说明：探测某个配置数据的时间间隔，默认为15秒，
 修改原因：客户端可以通过配置文件动态修改这个时间。
@@ -59,7 +58,7 @@ HTTP_URI_FILE对应的port修改位置：com.taobao.diamond.client.DiamondConfig
 CONFIG_HTTP_URI_FILE的port修改位置：com.taobao.diamond.common.Constants#DEFAULT_PORT，并且可以动态配置，参考上面；
 
 2、HTTP_URI_FILE和CONFIG_HTTP_URI_FILE的ip地址获取方式：  
-CONFIG_HTTP_URI_FILE，先取com.taobao.diamond.client.DiamondConfigure#configServerAddress，
+CONFIG_HTTP_URI_FILE，先取com.taobao.diamond.client.DiamondConfigure#configServerAddress，  
 (1)如果configServerAddress!=null(不会重试备用服务器，只会重试2次同样的host+port，推荐默认值null)，host=com.taobao.diamond.client.DiamondConfigure#configServerAddress，port=om.taobao.diamond.client.DiamondConfigure#configServerPort;  
 (2)如果configServerAddress==null(会重试备用服务器)，
 host=com.taobao.diamond.common.Constants#DEFAULT_DOMAINNAME，port=com.taobao.diamond.common.Constants#DEFAULT_PORT;
