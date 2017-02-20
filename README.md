@@ -12,7 +12,7 @@ diamond
 4.system.properties中配置的dump_config_interval，定时器多久全量更新一次数据库的配置数据，  
   说明：一次取1000条记录，分页更新。
 
-二、客户端配置  
+二、客户端配置  
 客户端调用diamond-server获取配置数据信息时，需要通过diamond.properties动态修改一些数据，如：
 
 //获取ServerAddress的URI服务器所在域名或者ip地址  
