@@ -62,7 +62,7 @@ public class AdminController {
     public String postConfig(HttpServletRequest request, HttpServletResponse response,
             @RequestParam("dataId") String dataId, @RequestParam("group") String group,
             @RequestParam("content") String content, ModelMap modelMap) {
-        response.setCharacterEncoding("GBK");
+        response.setCharacterEncoding(Constants.ENCODE);
 
         boolean checkSuccess = true;
         String errorMessage = "参数错误";
@@ -107,7 +107,7 @@ public class AdminController {
     public String upload(HttpServletRequest request, HttpServletResponse response,
             @RequestParam("dataId") String dataId, @RequestParam("group") String group,
             @RequestParam("contentFile") MultipartFile contentFile, ModelMap modelMap) {
-        response.setCharacterEncoding("GBK");
+        response.setCharacterEncoding(Constants.ENCODE);
 
         boolean checkSuccess = true;
         String errorMessage = "参数错误";
@@ -139,7 +139,7 @@ public class AdminController {
     public String reupload(HttpServletRequest request, HttpServletResponse response,
             @RequestParam("dataId") String dataId, @RequestParam("group") String group,
             @RequestParam("contentFile") MultipartFile contentFile, ModelMap modelMap) {
-        response.setCharacterEncoding("GBK");
+        response.setCharacterEncoding(Constants.ENCODE);
 
         boolean checkSuccess = true;
         String errorMessage = "参数错误";
@@ -186,7 +186,7 @@ public class AdminController {
     public String updateConfig(HttpServletRequest request, HttpServletResponse response,
             @RequestParam("dataId") String dataId, @RequestParam("group") String group,
             @RequestParam("content") String content, ModelMap modelMap) {
-        response.setCharacterEncoding("GBK");
+        response.setCharacterEncoding(Constants.ENCODE);
 
         ConfigInfo configInfo = new ConfigInfo(dataId, group, content);
         boolean checkSuccess = true;
@@ -290,7 +290,7 @@ public class AdminController {
     public String batchQuery(HttpServletRequest request, HttpServletResponse response,
             @RequestParam("dataIds") String dataIds, @RequestParam("group") String group, ModelMap modelMap) {
 
-        response.setCharacterEncoding("GBK");
+        response.setCharacterEncoding(Constants.ENCODE);
 
         // 这里抛出的异常, 会产生一个500错误, 返回给sdk, sdk会将500错误记录到日志中
         if (StringUtils.isBlank(dataIds)) {
@@ -359,7 +359,7 @@ public class AdminController {
             @RequestParam("allDataIdAndContent") String allDataIdAndContent, @RequestParam("group") String group,
             ModelMap modelMap) {
 
-        response.setCharacterEncoding("GBK");
+        response.setCharacterEncoding(Constants.ENCODE);
 
         // 这里抛出的异常, 会产生一个500错误, 返回给sdk, sdk会将500错误记录到日志中
         if (StringUtils.isBlank(allDataIdAndContent)) {

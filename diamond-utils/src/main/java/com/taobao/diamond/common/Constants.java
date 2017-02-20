@@ -64,7 +64,7 @@ public class Constants {
 
     public static final String SPACING_INTERVAL = "client-spacing-interval";
 
-    public static final int POLLING_INTERVAL_TIME = 15;// 秒
+    public static int POLLING_INTERVAL_TIME = 15;// 秒
 
     public static final int ONCE_TIMEOUT = 2000;// 毫秒
 
