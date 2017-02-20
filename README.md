@@ -3,18 +3,6 @@ diamond
 
 来自淘宝diamond：http://code.taobao.org/p/diamond/src/
 
-diamond设计上的一些问题？
-==
-1. com.taobao.diamond.common.Constants.CONFIG_HTTP_URI_FILE，获取ServerAddress的值，当前没实现他们的，所以必须自己配置
-1. 目前必须在：~/diamond/ServerAddress文件中配置diamond的服务器地址
-1. 原来很多都写在Constants中是final的，所以提供了：-D > env > diamond.properties方式来配置一些值
-
-client使用
-==
-1.配置获取/探测dataId数据改变的url 
-* classpath:diamond.properties
- HTTP_URI_FILE=/diamond-server/config.co   
-
 一、diamond-server
  
  一个web程序，用tomcat容器启动。  
@@ -31,7 +19,7 @@ client使用
 public static final int POLLING_INTERVAL_TIME = 15;// 秒
 去掉final，public static int POLLING_INTERVAL_TIME = 15; // 秒
 
-字段说明：探测某个配置数据的时间间隔，默认为15秒，
+字段说明：探测某个配置数据的时间间隔，默认为15秒，  
 修改原因：客户端可以通过配置文件动态修改这个时间。
 
 三、客户端配置  
