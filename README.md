@@ -5,14 +5,15 @@ diamond
 
 一、diamond-server
  
- 一个web程序，用tomcat容器启动。  
+一个web程序，用tomcat容器启动。  
 1.提供接口用于客户端获取配置信息，以及探测配置信息是否修改并且获取最新数据，  
 2.提供一个简约的操作页面，增删改配置数据，  
 3.通知集群中其他节点同步更新变化的配置数据，集群节点的ip和port，通过node.properties配置(这个不太好，如果在集群中新增一个节点，需要更改其他所有节点配置),  
-4.system.properties中配置的dump_config_interval，定时器多久全量更新一次数据库的配置数据，  
-  说明：一次取1000条记录，分页更新。
-
-二、客户端配置  
+4.system.properties中配置的dump_config_interval，定义定时器多久全量更新一次数据库的配置数据，  
+  说明：一次取1000条记录，分页更新。  
+5.获取配置信息默认重试次数为Integer.MAX_VALUE / 10，当重试的总时间大于超时时间，或者重试次数大于默认重试次数，返回数据。  
+  
+二、客户端配置  
 客户端调用diamond-server获取配置数据信息时，需要通过diamond.properties动态修改一些数据，如：
 
 //获取ServerAddress的URI服务器所在域名或者ip地址  
